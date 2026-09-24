@@ -1,6 +1,6 @@
 {
   "name": "freqmark-js",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Browser-first blind image fingerprint watermarking with crop/resize-resilient tiled DCT detection and reveal mode.",
   "type": "module",
   "main": "./dist/index.js",
