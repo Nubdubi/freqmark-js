@@ -456,3 +456,12 @@
 - 수정: demo Decode를 `decodeInWorker()`로 변경해 DCT/offset/phase 탐색을 module worker에서 수행한다.
 - 중복 decode 요청을 막기 위해 실행 중 버튼을 비활성화하고 `finally`에서 복구한다.
 - 검출 실패 또는 큰 변형에서는 전체 후보를 확인하므로 시간이 걸릴 수 있다는 진행 문구를 표시한다.
+
+## npm/Git 설명 한글화
+
+상태: 완료 (2026-09-25)
+
+- `package.json`의 npm description을 한국어/영어 병기로 변경했다.
+- README 첫 화면에 한국어 프로젝트 설명, 주요 기능, 보안·법적 한계를 추가했다.
+- README의 버전 표기를 v0.3 구현 상태에 맞게 정리했다.
+- CHANGELOG 0.3.0 항목에 한국어와 영어 요약을 추가했다.

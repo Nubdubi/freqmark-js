@@ -1,12 +1,16 @@
 # freqmark-js
 
-Browser-first invisible image fingerprinting for JavaScript/TypeScript.
+브라우저와 JavaScript/TypeScript 환경을 위한 비가시성 이미지 fingerprint 워터마크 라이브러리입니다.
 
-`freqmark-js` embeds a compact 64-bit fingerprint in mid-frequency DCT coefficients. v0.2 repeats the payload spatially and can search grid position + scale during decoding, improving recovery after common crop and resize operations.
+JPEG 재압축, 밝기 변경, crop, resize와 검증된 범위의 회전·원근 보정 이후에도 배포 이미지의 fingerprint를 찾을 수 있도록 설계되었습니다. Adaptive perceptual masking, QIM, ECC, 동기화 pilot, Web Worker, 카메라 검출 및 robustness benchmark를 제공합니다.
 
-> This project is an experimental tracing/forensics primitive, not DRM. It cannot prevent a determined person from copying or AI-regenerating an image, and a recovered fingerprint identifies the distributed copy/session rather than proving who personally leaked it.
+Browser-first invisible image fingerprinting for JavaScript/TypeScript, with adaptive QIM, ECC, synchronization, geometric correction, worker decoding, camera detection, and robustness benchmarks.
 
-## v0.2 highlights
+`freqmark-js`는 중주파 DCT 계수에 64-bit fingerprint를 삽입합니다. v0.3은 perceptual block selection, QIM, 반복 ECC, pseudo-random placement와 sync pilot을 사용하며 crop/resize/rotation 및 명시적 corner 기반 perspective rectification을 지원합니다.
+
+> 이 프로젝트는 DRM이나 법적 유포자 단정 도구가 아닙니다. 복구된 fingerprint는 특정 사용자/세션에 배포된 이미지 사본과의 일치 가능성을 나타내며, 계정 소유자가 직접 유포했다는 사실을 증명하지 않습니다. AI 재생성이나 광범위한 이미지 교체 이후의 복구도 보장하지 않습니다.
+
+## v0.3 주요 기능 / Highlights
 
 - Invisible 64-bit fingerprint payload
 - Blind decoding: original image is not required
@@ -18,7 +22,7 @@ Browser-first invisible image fingerprinting for JavaScript/TypeScript.
 - Browser-first API using Canvas / OffscreenCanvas
 - TypeScript source, MIT license, tests and GitHub Actions CI
 
-## In-progress v0.3 work
+## v0.3 구현 내역
 
 STEP 1 adds browser-independent perceptual block analysis. Encoding now skips blocks below a normalized texture threshold by default, reducing changes in flat colors and smooth gradients while retaining the existing `encode()`, `decode()`, and `reveal()` APIs. Use `adaptive: false` only when all-block embedding is required, or tune the advanced `textureThreshold` option after testing representative images.
 
