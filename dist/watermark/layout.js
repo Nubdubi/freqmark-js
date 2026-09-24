@@ -8,11 +8,23 @@ export const LEGACY_TILE_BLOCKS = 16;
 export const TILE_BLOCKS = 18;
 export const DEFAULT_PLACEMENT_SEED = 'freqmark-public-layout';
 const permutationCache = new Map();
+const MAX_CACHE_ENTRIES = 32;
+function validatePublicSeed(seed) {
+    if (seed.length === 0 || seed.length > 256) {
+        throw new Error('Public placement seed must contain 1..256 characters.');
+    }
+}
 export function placementPermutation(frameBits, version = 3, publicSeed = DEFAULT_PLACEMENT_SEED) {
+    validatePublicSeed(publicSeed);
     const key = `${version}:${frameBits}:${publicSeed}`;
     let permutation = permutationCache.get(key);
     if (!permutation) {
         permutation = createPermutation(frameBits, hashSeed(key));
+        if (permutationCache.size >= MAX_CACHE_ENTRIES) {
+            const oldest = permutationCache.keys().next().value;
+            if (oldest !== undefined)
+                permutationCache.delete(oldest);
+        }
         permutationCache.set(key, permutation);
     }
     return permutation;

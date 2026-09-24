@@ -9,4 +9,5 @@ if (pilotConfidence(64, 64) !== 1 || pilotConfidence(32, 64) !== 0) process.exit
 const pattern = getPilotPattern('sync-test');
 const activeCount = pattern.active.reduce((sum, value) => sum + value, 0);
 if (activeCount < 180 || activeCount > 330 || pilotActive(3, 4, 'sync-test') !== Boolean(pattern.active[4 * 32 + 3])) process.exit(1);
+if (!(() => { try { getPilotPattern('x'.repeat(257)); return false; } catch { return true; } })()) process.exit(1);
 console.log('freqmark-js sync pilot test passed');

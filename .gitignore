@@ -1,3 +1,23 @@
 node_modules/
 .DS_Store
 *.log
+
+# Build and tool output
+dist/
+.vite/
+coverage/
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+private/
+
+# Internal implementation notes
+AGENTS.md
+COMPLETE.md

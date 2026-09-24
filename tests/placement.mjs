@@ -7,6 +7,7 @@ const b = placementPermutation(312, 3, 'public-b');
 if (!a.every((value, index) => value === again[index])) process.exit(1);
 if (new Set(a).size !== 312 || a.some((value) => value >= 312)) process.exit(1);
 if (a.every((value, index) => value === b[index])) process.exit(1);
+if (!(() => { try { placementPermutation(312, 3, 'x'.repeat(257)); return false; } catch { return true; } })()) process.exit(1);
 
 const direct = createPermutation(64, hashSeed('deterministic'));
 const directAgain = createPermutation(64, hashSeed('deterministic'));
