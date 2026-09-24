@@ -1,0 +1,1 @@
+{"version":3,"file":"detector.d.ts","sourceRoot":"","sources":["../../src/browser/detector.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,aAAa,EAAE,YAAY,EAAE,MAAM,aAAa,CAAC;AAU/D,MAAM,WAAW,kBAAkB;IACjC,eAAe,CAAC,SAAS,EAAE,SAAS,EAAE,OAAO,CAAC,EAAE,aAAa,GAAG,OAAO,CAAC,YAAY,CAAC,CAAC;IACtF,SAAS,IAAI,IAAI,CAAC;CACnB;AAoBD,wBAAgB,kBAAkB,IAAI,kBAAkB,CAsCvD"}

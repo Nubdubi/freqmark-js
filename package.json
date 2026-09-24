@@ -1,0 +1,43 @@
+{
+  "name": "freqmark-js",
+  "version": "0.2.0",
+  "description": "Browser-first blind image fingerprint watermarking with crop/resize-resilient tiled DCT detection and reveal mode.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev": "vite --open /demo/",
+    "test": "npm run build && node tests/frame.mjs && node tests/ecc.mjs && node tests/placement.mjs && node tests/sync.mjs && node tests/rotation.mjs && node tests/perspective.mjs && node tests/worker.mjs && node tests/camera.mjs && node tests/benchmark.mjs && node tests/perceptual.mjs && node tests/qim-quality.mjs && node tests/smoke.mjs && node tests/robustness.mjs"
+  },
+  "keywords": [
+    "watermark",
+    "fingerprint",
+    "dct",
+    "image",
+    "browser",
+    "blind-watermark",
+    "crop-resistant",
+    "resize-resistant",
+    "forensics",
+    "reveal"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vite": "^7.1.0"
+  }
+}
