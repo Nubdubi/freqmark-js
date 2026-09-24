@@ -1,6 +1,6 @@
 {
   "name": "freqmark-js",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "브라우저용 비가시성 이미지 fingerprint 워터마크 | Robust invisible image fingerprinting for JavaScript",
   "type": "module",
   "main": "./dist/index.js",
